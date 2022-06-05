@@ -3,9 +3,16 @@ const https = require('https');
 
 const app = express();
 
+
+
+
 app.get('/', (req, res) => {
-// https.get openweathermap
-const url = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=c190c5b9bac354e1d88c10612a678d9f";
+
+const query = "London";
+const apiKey = "c190c5b9bac354e1d88c10612a678d9f"
+const unit = "metric";
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}&units=${unit}`;
+
 
     https.get(url, (response) => {
 
@@ -19,3 +26,5 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=c
         });
     });
 });
+
+
